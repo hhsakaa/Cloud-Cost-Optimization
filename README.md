@@ -1,6 +1,3 @@
 # Cloud-Cost-Optimization
 
-
-
-
-Hello
+The major reasons for moving organizations to the cloud are reducing the overhead of infrastructure and reducing the cost of infrastructure. It is very crucial for devops engineers to make sure the cost to the organization is as low as possible. To automate this task, AWS Cloud Watch is used to monitor the cloud, and Lambda, which is a serverless architecture, can be used to do some tasks and inform peers about the resource wastage. In this task, the Python boto3 module communicates with the AWS API to get the list of snapshots, instances, and volumes and filters out the snapshots that are not attached to any instance. After informing peers about the abandoned snapshots using SQS (Simple Queue Service), deletion takes place.
