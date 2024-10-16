@@ -1,23 +1,35 @@
-### Automating Cloud Cost Optimization Using AWS Services
+# AWS Cloud Cost Optimization Automation
 
-Cloud cost optimization is a critical responsibility for DevOps engineers, ensuring that infrastructure costs remain as low as possible. Below is a breakdown of how this task can be automated using various AWS services:
+## Overview
 
-- **Reasons for Cloud Adoption:**
-  - Reducing infrastructure overhead.
-  - Reducing infrastructure costs.
+This project automates the identification and deletion of unused AWS resources, such as abandoned snapshots, to optimize cloud costs. By leveraging various AWS services like Lambda, CloudWatch, SQS, and the Python Boto3 module, it provides a scalable, serverless solution for reducing cloud infrastructure expenses.
 
-- **Importance for DevOps Engineers:**
-  - Ensuring that cloud resources are optimized to minimize costs.
-  - Automating resource monitoring and cleanup tasks.
+## Features
 
-- **Automation Workflow:**
-  1. **Monitoring:** AWS CloudWatch is used to monitor cloud resources, tracking utilization and performance.
-  2. **Task Automation:** AWS Lambda, a serverless architecture, is used to perform automated tasks and notify peers of resource inefficiencies.
-  3. **Snapshot Management:** 
-     - The Python Boto3 module communicates with the AWS API to retrieve lists of snapshots, instances, and volumes.
-     - It filters out snapshots that are not attached to any instance (abandoned snapshots).
-  4. **Notification System:** 
-     - Simple Queue Service (SQS) is used to notify peers about the abandoned snapshots.
-  5. **Cleanup:** After peer notification, the unused snapshots are automatically deleted to prevent unnecessary cost buildup.
+- **Automated Resource Monitoring:** Uses AWS CloudWatch to monitor AWS resources, such as instances, volumes, and snapshots.
+- **Serverless Architecture:** AWS Lambda triggers automated tasks without requiring dedicated infrastructure.
+- **Efficient Cleanup:** Filters out unused (abandoned) snapshots that are not attached to any active instance.
+- **Notification System:** Uses AWS Simple Queue Service (SQS) to notify peers of unused resources before they are deleted.
+- **Cost Savings:** Helps prevent unnecessary expenses by cleaning up abandoned resources.
 
-This automated workflow helps to ensure that cloud resources are continuously optimized, reducing waste and unnecessary spending.
+## Technologies Used
+
+- **AWS CloudWatch:** For resource monitoring and event triggering.
+- **AWS Lambda:** For running automated serverless functions.
+- **AWS Simple Queue Service (SQS):** For notifying peers about unused resources.
+- **Boto3 (Python Module):** To interact with AWS APIs, retrieve resource details, and perform actions like snapshot deletion.
+
+## How It Works
+
+1. **Monitor Resources:** AWS CloudWatch tracks cloud resource usage and triggers Lambda functions based on predefined criteria.
+2. **Identify Unused Snapshots:** The Boto3 module interacts with AWS APIs to retrieve lists of snapshots, instances, and volumes, filtering out unused ones.
+3. **Peer Notification:** Notifications are sent to peers via SQS about abandoned snapshots to provide visibility into resource wastage.
+4. **Automated Cleanup:** After notifications, unused snapshots are deleted automatically to reduce ongoing costs.
+
+## Setup Instructions
+
+To use this automation in your AWS environment:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/hhsakaa/cloud-cost-optimization.git
