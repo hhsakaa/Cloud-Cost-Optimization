@@ -1,4 +1,4 @@
-# AWS Cloud Cost Optimization Automation  
+# AWS Cloud Cost Optimization Automation
 
 ## Overview
 
